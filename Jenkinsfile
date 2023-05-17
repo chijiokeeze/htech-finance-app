@@ -1,20 +1,22 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Build'){
-            agent any
             steps {
                 sh 'echo this is my 1st Project'
                 }
             }
         stage('sonarqube'){
-            agent any
+            agent{
+                docker {
+                    image 'maven'
+                }
+            }
             steps {
-                sh 'echo this is my 2nd Project'
+                sh 'mvn --version'
                 }
             }
         stage('docker stage'){
-            agent any
             steps {
                 sh 'echo this is my 3rd Project'
             }
