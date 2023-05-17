@@ -9,8 +9,8 @@ pipline{
             }
             steps {
                 sh 'mvn -- version'
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/chijiokeeze/htech-finance-app.git']])
-                sh 'mvn clean install'
+//                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/chijiokeeze/htech-finance-app.git']])
+//                 sh 'mvn clean install'
                 }
         }
     }
