@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'maven'
+        }
+    }
     stages {
         stage('Build'){
             steps {
@@ -7,11 +11,6 @@ pipeline {
                 }
             }
         stage('sonarqube'){
-            agent{
-                docker {
-                    image 'maven'
-                }
-            }
             steps {
                 sh 'mvn --version'
                 }
@@ -25,5 +24,6 @@ pipeline {
     post{
         always {
             cleanWs()
-    }
+        }
+    }    
 }
